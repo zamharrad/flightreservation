@@ -29,7 +29,7 @@ public class ReservationRestController {
         return null;
     }
 
-    @RequestMapping("/reservation")
+    @RequestMapping("/reservations")
     public Reservation updateReservation(@RequestBody ReservationUpdateRequeset requeset) {
 
         Optional<Reservation> reservation = reservationRepository.findById(requeset.getId());
