@@ -1,5 +1,7 @@
 package com.rad.flightreservation.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -12,11 +14,13 @@ import java.io.File;
 @Component
 public class EmailUtil {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(EmailUtil.class);
+
     @Autowired
     private JavaMailSender javaMailSender;
 
     public void sendItinerary(String toAddress, String path) {
-
+        LOGGER.info("Inside the sendItinerary()");
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
@@ -27,7 +31,7 @@ public class EmailUtil {
             messageHelper.addAttachment("", new File(path));
             javaMailSender.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            LOGGER.error("Exception inside the send itinerary "+e);
         }
 
     }

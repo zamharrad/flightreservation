@@ -8,6 +8,8 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.rad.flightreservation.modal.Reservation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import sun.plugin2.os.windows.Windows;
 
@@ -17,7 +19,11 @@ import java.io.FileOutputStream;
 @Component
 public class PDFGenarator {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(PDFGenarator.class);
+
     public void genarateItinerary(Reservation reservation, String path) {
+
+        LOGGER.info("Inside the generateItinerary()");
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(path));
@@ -27,7 +33,7 @@ public class PDFGenarator {
         } catch (DocumentException e) {
             e.printStackTrace();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            LOGGER.error("Exception in generating :" + e);
         }
     }
 
