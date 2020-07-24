@@ -5,6 +5,7 @@ import com.rad.flightreservation.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +20,9 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BCryptPasswordEncoder encoder;
+
     @RequestMapping("/showReg")
     public String showRegage() {
         return "login/registerUser";
@@ -27,6 +31,7 @@ public class UserController {
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") User user) {
         LOGGER.info("Inside the register() :"+user);
+        user.setPassword(encoder.encode(user.getPassword()));  //password encrypt
         userRepository.save(user);
         return "login/login";
     }

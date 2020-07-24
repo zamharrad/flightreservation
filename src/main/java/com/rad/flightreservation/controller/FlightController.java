@@ -30,18 +30,23 @@ public class FlightController {
                               @RequestParam(name = "departureDate", defaultValue = "02-06-2019") String departureDate,
                               ModelMap modelMap) throws ParseException {
 
-        LOGGER.info("Inside findFlights() from :"+ from + "To :"+ to +"Departure Date :" +departureDate);
+        LOGGER.info("Inside findFlights() from :" + from + "To :" + to + "Departure Date :" + departureDate);
 
         DateFormat formatter;
         Date date;
         formatter = new SimpleDateFormat("MM-dd-yyyy");
         date = (Date) formatter.parse(departureDate);
         System.out.println("----------------------");
-        System.out.println("argument date ::"+departureDate);
-        System.out.println("hard coded date ::"+ date);
+        System.out.println("argument date ::" + departureDate);
+        System.out.println("hard coded date ::" + date);
 
         List<Flight> flights = flightRepository.findFlights(from, to, date);
         modelMap.addAttribute("flights", flights);
         return "displayFlights";
+    }
+
+    @RequestMapping("admin/showAddFlight")
+    public String showAddFlight() {
+        return "addFlight";
     }
 }

@@ -12,6 +12,7 @@ import com.rad.flightreservation.util.PDFGenarator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -33,6 +34,9 @@ public class ReservationServiceImpl implements ReservationService {
     PDFGenarator pdfGenarator;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
+
+    @Value(value = "${com.rad.flightreservation.itinerary.dir}")
+    private String ITINERARY_DIR;
 
     @Override
     public Reservation bookFlight(ReservationRequest request) {
@@ -58,8 +62,7 @@ public class ReservationServiceImpl implements ReservationService {
         LOGGER.info("Saving the reservation :" + reservation);
         Reservation savedReservation = reservationRepository.save(reservation);
 
-        String filePath = "C:/Users/mhmdz/Documents/Projects/Spring" +
-                "/flightreservation/document/reservations/reservation" + savedReservation.getId() + ".pdf";
+        String filePath = ITINERARY_DIR + savedReservation.getId() + ".pdf";
 
         LOGGER.info("Generating the itinerary");
         pdfGenarator.genarateItinerary(savedReservation, filePath);
