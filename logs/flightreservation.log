@@ -1,0 +1,94 @@
+2020-07-22 -Starting FlightreservationApplication on DESKTOP-CATFJU2 with PID 11176 (C:\Users\mhmdz\Documents\Projects\Spring\flightreservation\target\classes started by mhmdz in C:\Users\mhmdz\Documents\Projects\Spring\flightreservation)
+2020-07-22 -No active profile set, falling back to default profiles: default
+2020-07-22 -Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-22 -Finished Spring Data repository scanning in 140ms. Found 5 JPA repository interfaces.
+2020-07-22 -Tomcat initialized with port(s): 8080 (http)
+2020-07-22 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-22 -Starting service [Tomcat]
+2020-07-22 -Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-22 -At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-22 -Initializing Spring embedded WebApplicationContext
+2020-07-22 -Root WebApplicationContext: initialization completed in 4027 ms
+2020-07-22 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-22 -HikariPool-1 - Starting...
+2020-07-22 -HikariPool-1 - Start completed.
+2020-07-22 -HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-22 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'encoder'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-22 -Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-22 -HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-22 -HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-22 -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-22 -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-22 -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-22 -Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-22 -HikariPool-1 - Shutdown initiated...
+2020-07-22 -HikariPool-1 - Shutdown completed.
+2020-07-22 -Stopping service [Tomcat]
+2020-07-22 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-22 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field encoder in com.rad.flightreservation.controller.UserController required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
+
+2020-07-22 -Starting FlightreservationApplication on DESKTOP-CATFJU2 with PID 12676 (C:\Users\mhmdz\Documents\Projects\Spring\flightreservation\target\classes started by mhmdz in C:\Users\mhmdz\Documents\Projects\Spring\flightreservation)
+2020-07-22 -No active profile set, falling back to default profiles: default
+2020-07-22 -Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2020-07-22 -Finished Spring Data repository scanning in 179ms. Found 5 JPA repository interfaces.
+2020-07-22 -Tomcat initialized with port(s): 8080 (http)
+2020-07-22 -Initializing ProtocolHandler ["http-nio-8080"]
+2020-07-22 -Starting service [Tomcat]
+2020-07-22 -Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-22 -At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2020-07-22 -Initializing Spring embedded WebApplicationContext
+2020-07-22 -Root WebApplicationContext: initialization completed in 3705 ms
+2020-07-22 -Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-22 -HikariPool-1 - Starting...
+2020-07-22 -HikariPool-1 - Start completed.
+2020-07-22 -HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-07-22 -HHH000412: Hibernate ORM core version 5.4.17.Final
+2020-07-22 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'encoder'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2020-07-22 -Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-07-22 -HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-07-22 -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2020-07-22 -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-07-22 -Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-07-22 -Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-22 -HikariPool-1 - Shutdown initiated...
+2020-07-22 -HikariPool-1 - Shutdown completed.
+2020-07-22 -Stopping service [Tomcat]
+2020-07-22 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-07-22 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field encoder in com.rad.flightreservation.controller.UserController required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
+
