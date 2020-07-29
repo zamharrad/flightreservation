@@ -2,10 +2,12 @@ package com.rad.flightreservation.controller;
 
 import com.rad.flightreservation.modal.User;
 import com.rad.flightreservation.repositories.UserRepository;
+import com.rad.flightreservation.services.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,7 +23,9 @@ public class UserController {
     UserRepository userRepository;
 
     @Autowired
-    BCryptPasswordEncoder encoder;
+    SecurityService securityService;
+
+    BCryptPasswordEncoder  encoder =new BCryptPasswordEncoder();
 
     @RequestMapping("/showReg")
     public String showRegage() {
@@ -46,8 +50,9 @@ public class UserController {
     public String login(@RequestParam("email") String email, @RequestParam("password") String password,
                         ModelMap modelMap) {
         LOGGER.info("Inside the login() and email is :"+email);
+        boolean loginResponse = securityService.login(email,password);
         User user = userRepository.findByEmail(email);
-        if (user.getPassword().equals(password)) {
+        if (loginResponse) {
             return "findFlights";
         } else {
             modelMap.addAttribute("msg", "Invalid UserName or Password. Try Again");

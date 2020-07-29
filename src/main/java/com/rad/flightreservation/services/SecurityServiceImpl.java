@@ -12,15 +12,14 @@ public class SecurityServiceImpl implements SecurityService {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
-    AuthenticationManager authenticationManager;
+    AuthenticationManagerImpl authenticationManagerImpl;
 
     @Override
     public boolean login(String username, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
-        authenticationManager.authenticate(token);
+        authenticationManagerImpl.authenticate(token);
         boolean result = token.isAuthenticated();
 
         return result;
